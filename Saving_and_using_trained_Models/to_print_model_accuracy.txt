@@ -1,0 +1,11 @@
+for line in reader():
+    try:
+        results = {}
+        for algo in model:
+            clf = model[algo]
+            clf.fit(X_train,y_train)
+            score = clf.score(X_test,y_test)
+            print ("%s : %s " %(algo, score))
+            results[algo] = score
+    except ValueError:
+        continue
